@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght=700;900&display=swap');
 
         body {
             font-family: 'Nunito', sans-serif;
@@ -79,91 +79,17 @@
         </div>
     </div>
 
-    <!-- ECRAN DE LECON (Reconstitution de l'image fournie) -->
-    <div id="screen-lesson" class="absolute inset-0 z-50 glass-panel hidden flex flex-col items-center py-8 px-4 overflow-y-auto">
-        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl max-w-4xl w-full relative border-4 border-gray-200">
+    <!-- ECRAN DE LECON (Chargement de l'image externe lecon.png) -->
+    <div id="screen-lesson" class="absolute inset-0 z-50 glass-panel hidden flex flex-col items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-4xl w-full relative border-4 border-purple-200 flex flex-col items-center max-h-[92vh]">
             <!-- Bouton Retour -->
-            <button onclick="showHome()" class="absolute top-4 right-4 bg-gray-200 hover:bg-red-500 hover:text-white text-gray-800 rounded-full w-12 h-12 flex items-center justify-center font-bold text-2xl transition-colors shadow">&times;</button>
+            <button onclick="showHome()" class="absolute -top-3 -right-3 md:top-4 md:right-4 bg-red-500 hover:bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-2xl transition-all shadow-lg hover:scale-110 active:scale-95 z-50">&times;</button>
             
-            <h2 class="text-3xl md:text-4xl font-black mb-2 font-sans text-gray-900">Reconnaitre un polygone</h2>
-            <p class="text-xl md:text-2xl mb-12 font-sans text-gray-800 leading-tight">Un polygone est une figure fermée tracée avec la règle.<br>Tous les côtés d'un polygone sont droits.</p>
+            <h2 class="text-3xl font-black mb-4 text-purple-600 text-center">Ma Leçon</h2>
             
-            <div class="flex flex-col items-center w-full">
-                <!-- Groupe 1: Les Polygones -->
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-6 relative w-full">
-                    <!-- Forme A -->
-                    <div class="relative w-48 h-48">
-                        <svg viewBox="0 0 150 150" class="w-full h-full overflow-visible">
-                            <polygon points="10,60 50,10 120,30 110,100 30,120" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="55" y="75" font-size="20" font-family="sans-serif">a</text>
-                            
-                            <!-- Étiquettes et flèches -->
-                            <g transform="translate(45, -20)">
-                                <rect x="0" y="0" width="55" height="24" fill="#e5e7eb" rx="2"/>
-                                <text x="27.5" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" fill="#4b5563">côté</text>
-                            </g>
-                            <path d="M72.5,4 L65,30" fill="none" stroke="black" stroke-width="1.2" marker-end="url(#arrowhead)"/>
-                            
-                            <g transform="translate(100, 20)">
-                                <rect x="0" y="0" width="75" height="24" fill="#e5e7eb" rx="2"/>
-                                <text x="37.5" y="17" text-anchor="middle" font-size="14" font-family="sans-serif" fill="#4b5563">sommet</text>
-                            </g>
-                            <path d="M100,32 L116,28" fill="none" stroke="black" stroke-width="1.2" marker-end="url(#arrowhead)"/>
-
-                            <defs>
-                                <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                                    <path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
-                                </marker>
-                            </defs>
-                        </svg>
-                    </div>
-
-                    <!-- Forme B -->
-                    <div class="w-40 h-40 mt-8">
-                        <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
-                            <polygon points="10,40 80,10 90,80 20,90" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="50" y="60" font-size="20" font-family="sans-serif" text-anchor="middle">b</text>
-                        </svg>
-                    </div>
-
-                    <!-- Forme C -->
-                    <div class="w-40 h-40">
-                        <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
-                            <polygon points="0,50 30,50 20,90 90,90 100,20 50,10" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="60" y="60" font-size="20" font-family="sans-serif" text-anchor="middle">c</text>
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-xl md:text-2xl mb-16 font-sans text-gray-800 text-center">a, b et c sont des polygones.</p>
-
-                <!-- Groupe 2: Les Non-Polygones -->
-                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-6 w-full">
-                    <!-- Forme D -->
-                    <div class="w-40 h-40">
-                        <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
-                            <polyline points="60,10 10,60 30,110 70,100 85,45" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="40" y="70" font-size="20" font-family="sans-serif" text-anchor="middle">d</text>
-                        </svg>
-                    </div>
-
-                    <!-- Forme E -->
-                    <div class="w-40 h-40 mt-8">
-                        <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
-                            <!-- Trace une ligne droite en bas à droite, puis un arc courbé -->
-                            <path d="M50,0 L90,50 L40,90 A45,45 0 0,1 50,0 Z" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="50" y="55" font-size="20" font-family="sans-serif" text-anchor="middle">e</text>
-                        </svg>
-                    </div>
-
-                    <!-- Forme F -->
-                    <div class="w-40 h-40 mt-16">
-                        <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
-                            <path d="M50,15 C80,10 90,40 90,75 C90,105 60,105 40,95 C10,85 -5,40 20,25 C30,10 40,15 50,15 Z" fill="none" stroke="black" stroke-width="2"/>
-                            <text x="50" y="65" font-size="20" font-family="sans-serif" text-anchor="middle">f</text>
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-xl md:text-2xl mb-4 font-sans text-gray-800 text-center">d, e et f ne sont pas des polygones.</p>
+            <div id="lesson-image-container" class="w-full overflow-auto flex justify-center items-center bg-gray-50 rounded-2xl p-2 border-2 border-dashed border-gray-200 flex-1 min-h-[300px]">
+                <!-- Image de la leçon -->
+                <img id="lesson-img" src="lecon.png" alt="Leçon sur les polygones" class="max-h-[65vh] max-w-full rounded-xl object-contain shadow-sm" onerror="handleImageError(this)">
             </div>
         </div>
     </div>
@@ -325,11 +251,31 @@
         function showLesson() {
             document.getElementById('screen-home').classList.add('hidden');
             document.getElementById('screen-lesson').classList.remove('hidden');
+            
+            // Re-tenter de charger l'image au cas où elle a été ajoutée entre temps
+            const img = document.getElementById('lesson-img');
+            if (img) {
+                img.src = 'lecon.png?t=' + Date.now(); // évite le cache
+            }
         }
 
         function showPreGame() {
             document.getElementById('screen-home').classList.add('hidden');
             document.getElementById('screen-start').classList.remove('hidden');
+        }
+
+        // Fonction pour gérer si l'image locale est introuvable
+        function handleImageError(img) {
+            const container = document.getElementById('lesson-image-container');
+            container.innerHTML = `
+                <div class="text-center p-8 flex flex-col items-center justify-center">
+                    <span class="text-6xl mb-4">⚠️</span>
+                    <p class="text-2xl font-black text-red-500 mb-2">Fichier "lecon.png" manquant</p>
+                    <p class="text-lg text-gray-600 max-w-xl">
+                        Pour afficher la leçon, pense à placer ton fichier image nommé <strong class="text-blue-600 font-black">lecon.png</strong> dans le même dossier que ce fichier HTML.
+                    </p>
+                </div>
+            `;
         }
 
         /* =========================================================================
